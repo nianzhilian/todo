@@ -1,0 +1,10 @@
+build
+dist
+.DS_Store
+.project
+.settings
+.coverage
+collected-static/
+node_modules/
+*.css
+.sass-cache
