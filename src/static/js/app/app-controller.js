@@ -28,8 +28,8 @@ var AppController = marionette.Controller.extend({
         this.app.todoList = new TodoList();
 
         this.showHeader(this.app.todoList);
+        this.showMain(this.app.todoList);
         this.showFooter(this.app.todoList);
-        this.showTodoList(this.app.todoList);
 
         //app.listenTo(this.app.todoList, 'reset add remove', this.toggleFooter, this);
         this.app.todoList.fetch();
@@ -48,22 +48,18 @@ var AppController = marionette.Controller.extend({
         app.header.show(header);
     },
 
-    showFooter: function (todoList) {
-        var footer = new FooterView({
-            collection: todoList
-        });
-        app.footer.show(footer);
-    },
-
-    showTodoList: function (todoList) {
+    showMain: function (todoList) {
         var main = new TodoListView({
             collection: todoList
         });
         app.main.show(main);
     },
 
-    toggleFooter: function() {
-        app.footer.$el.toggle(this.todoList.length);
+    showFooter: function (todoList) {
+        var footer = new FooterView({
+            collection: todoList
+        });
+        app.footer.show(footer);
     },
 
     // Set the filter to show complete or all items

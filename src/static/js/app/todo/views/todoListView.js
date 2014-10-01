@@ -11,7 +11,7 @@
         childViewContainer: '#todo-list',
 
         ui: {
-            toggle: '#toggle-all'
+            toggleAll: '#toggle-all'
         },
 
         events: {
@@ -19,34 +19,34 @@
         },
 
         initialize: function () {
-            this.listenTo(this.collection, 'all', this.update);
+            this.listenTo(this.collection, 'all', this.handleToggleAllState);
         },
 
         onRender: function () {
-            this.update();
+            this.handleToggleAllState();
         },
 
-        update: function () {
-            function reduceCompleted(left, right) {
-                return left && right.get('completed');
+        handleToggleAllState: function () {
+            if (this.collection.length <= 0) {
+                this.ui.toggleAll.hide();
+            } else {
+                this.ui.toggleAll
+                  .prop('checked', this.allTodosCompleted())
+                  .show();
             }
-
-            var allCompleted = this.collection.reduce(reduceCompleted, true);
-
-            this.ui.toggle.attr('checked', allCompleted);
-            this.$el.parent().toggle(!!this.collection.length);
         },
 
-        removeItem: function () {
-            this.collection.render();
+        onToggleAllClick: function () {
+            var checkAll = this.ui.toggleAll.is(':checked');
+            this.collection.invoke('set', { 'completed': checkAll });
         },
 
-        onToggleAllClick: function (e) {
-            var isChecked = e.currentTarget.checked;
+        allTodosCompleted: function () {
+            var allCompleted = this.collection.reduce(function (allCompleted, todo) {
+                return todo.get('completed') === true;
+            }, false);
 
-            this.collection.each(function (todo) {
-                todo.save({ 'completed': isChecked });
-            });
+            return allCompleted;
         }
     });
 

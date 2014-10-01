@@ -22,7 +22,7 @@
         },
 
         initialize: function () {
-            this.listenTo(this.model, 'change remove', this.render);
+            this.listenTo(this.model, 'change', this.render);
         },
 
         onRender: function () {
@@ -37,6 +37,7 @@
 
         destroy: function () {
             this.model.destroy();
+            this.remove();
         },
 
         toggle: function () {
