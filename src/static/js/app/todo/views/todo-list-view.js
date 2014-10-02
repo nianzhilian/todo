@@ -47,6 +47,10 @@
             }, false);
 
             return allCompleted;
+        },
+
+        onFilter: function(filter) {
+            this.$el.attr("class", filter);
         }
     });
 

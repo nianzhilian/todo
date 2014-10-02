@@ -13,6 +13,9 @@ var FooterView = require('app/todo/views/footer-view').FooterView;
 var TodoItemView = require('app/todo/views/cells/todo-item-view').TodoItemView;
 var TodoListView = require('app/todo/views/todo-list-view').TodoListView;
 
+// View Instances
+var FooterInstance;
+
 // Models
 var TodoItem = require('app/todo/models/todo-item').TodoItem;
 var TodoList = require('app/todo/collections/todo-list').TodoList;
@@ -60,16 +63,14 @@ var AppController = marionette.Controller.extend({
             collection: todoList
         });
         app.footer.show(footer);
+        FooterInstance = footer;
     },
 
     // Set the filter to show complete or all items
     filterItems: function (filter) {
         var newFilter = filter && filter.trim() || 'all';
-        app.main.$el.attr('class', filter);
-        app.footer.currentView.ui.filters
-				.removeClass('selected')
-				.filter('[href="#' + filter + '"]')
-				.addClass('selected');
+        app.main.currentView.triggerMethod("filter", newFilter);
+        app.footer.currentView.triggerMethod("filter", newFilter);
     }
 });
 

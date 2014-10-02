@@ -41,6 +41,13 @@
             completed.forEach(function destroy(todo) {
                 todo.destroy();
             });
+        },
+
+        onFilter: function(filter) {
+            this.ui.filters
+            .removeClass('selected')
+            .filter('[href="#' + filter + '"]')
+            .addClass('selected');
         }
     });
 
