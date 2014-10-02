@@ -2,7 +2,7 @@
 
     var backbone = require('backbone');
     var localStorage = require('backbone-localStorage');
-    var TodoItem = require('app/todo/models/todo-item-model').TodoItem;
+    var TodoItem = require('app/todo/models/todo-item').TodoItem;
 
     var TodoList = backbone.Collection.extend({
         model: TodoItem,

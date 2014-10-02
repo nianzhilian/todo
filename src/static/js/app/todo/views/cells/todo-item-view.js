@@ -2,7 +2,7 @@
 
     var marionette = require('marionette');
 
-    var templateTodoItem = require('hbs!app/todo/templates/todoItem');
+    var templateTodoItem = require('hbs!app/todo/templates/todo-item');
 
     var TodoItemView = marionette.ItemView.extend({
         template: templateTodoItem,

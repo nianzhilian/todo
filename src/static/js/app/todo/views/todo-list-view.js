@@ -1,8 +1,8 @@
 ﻿define(function (require, exports, module) {
 
     var marionette = require('marionette');
-    var templateTodoList = require('hbs!app/todo/templates/todoList');
-    var TodoItemView = require('app/todo/views/todo-item-view').TodoItemView;
+    var templateTodoList = require('hbs!app/todo/templates/todo-list');
+    var TodoItemView = require('app/todo/views/cells/todo-item-view').TodoItemView;
 
     var TodoListView = marionette.CompositeView.extend({
         template: templateTodoList,
