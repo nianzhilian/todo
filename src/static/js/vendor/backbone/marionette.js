@@ -1931,7 +1931,7 @@
     },
 
     // get the child view by model it holds, and remove it
-    _onCollectionRemove: function(model) {
+    _onCollectionRemove: function (model) {
       var view = this.children.findByModel(model);
       this.removeChildView(view);
       this.checkEmpty();

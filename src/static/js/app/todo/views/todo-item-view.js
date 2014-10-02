@@ -14,7 +14,7 @@
         },
 
         events: {
-            'click .destroy': 'destroy',
+            'click .destroy': 'onDestroy',
             'dblclick label': 'onEditClick',
             'keypress .edit': 'onEditKeypress',
             'blur .edit': 'onEditBlur',
@@ -35,9 +35,8 @@
             }
         },
 
-        destroy: function () {
+        onDestroy: function () {
             this.model.destroy();
-            this.remove();
         },
 
         toggle: function () {

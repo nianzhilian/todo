@@ -8,14 +8,14 @@ var keys = require('built/app/keys');
 var app = require('app/app');
 
 // Views
-var HeaderView = require('app/todo/views/headerView').HeaderView;
-var FooterView = require('app/todo/views/footerView').FooterView;
-var TodoItemView = require('app/todo/views/todoItemView').TodoItemView;
-var TodoListView = require('app/todo/views/todoListView').TodoListView;
+var HeaderView = require('app/todo/views/header-view').HeaderView;
+var FooterView = require('app/todo/views/footer-view').FooterView;
+var TodoItemView = require('app/todo/views/todo-item-view').TodoItemView;
+var TodoListView = require('app/todo/views/todo-list-view').TodoListView;
 
 // Models
-var TodoItem = require('app/todo/models/todoItemModel').TodoItem;
-var TodoList = require('app/todo/models/todoListModel').TodoList;
+var TodoItem = require('app/todo/models/todo-item-model').TodoItem;
+var TodoList = require('app/todo/models/todo-list').TodoList;
 
 var AppController = marionette.Controller.extend({
 
